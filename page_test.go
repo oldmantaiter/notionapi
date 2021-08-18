@@ -3,11 +3,12 @@ package notionapi_test
 import (
 	"context"
 	"encoding/json"
-	"github.com/jomei/notionapi"
 	"net/http"
 	"reflect"
 	"testing"
 	"time"
+
+	"github.com/jomei/notionapi"
 )
 
 func TestPageClient(t *testing.T) {
@@ -340,7 +341,9 @@ func TestPageCreateRequest_MarshallJSON(t *testing.T) {
 								{
 									Text: notionapi.Text{
 										Content: "Lacinato",
-										Link:    "some_url",
+										Link: &notionapi.Link{
+											URL: "some_url",
+										},
 									},
 								},
 							},
